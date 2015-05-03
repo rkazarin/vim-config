@@ -1,0 +1,33 @@
+syntax on
+set backspace=2
+colorscheme elflord
+
+set nocompatible 
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'scrooloose/nerdtree.git'
+
+call vundle#end()
+filetype plugin indent on 
+
+nmap <silent> <C-D> :NERDTreeToggle<CR>
+
+execute pathogen#infect()
+
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_c_checkers=['gcc']
+let g:syntastic_java_checkers=['javac']
+let g:syntastic_python_checkers=['python']
+let g:syntastic_go_checkers=['go']
+let g:syntastic_javascript_checkers=['standard']
